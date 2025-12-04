@@ -1,0 +1,29 @@
+name: Project Build & Test
+
+on: push
+
+jobs:
+  build-code:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check Files Before Checkout
+        run: |
+          echo "Listing files before checkout..."
+          ls -R || echo "Directory is empty!"
+
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Check Files After Checkout
+        run: |
+          echo "Listing files after checkout..."
+          ls -R
+      
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm install

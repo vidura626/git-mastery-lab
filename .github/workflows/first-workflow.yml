@@ -21,3 +21,13 @@ jobs:
       
       - name: Say Goodbye
         run: echo "Job Completed Successfully!"
+      
+      - name: Multi-line Logic Test
+        run: |
+                echo "Testing memory persistence..."
+                export USER_ROLE="Admin"
+                echo "User is: $USER_ROLE"
+                
+                echo "Testing error handling..."
+                ls /fake-folder || echo "Folder not found, but continuing..."
+                echo "I am still alive!"

@@ -1,10 +1,23 @@
-name: My-First-Workflow
+name: Production Grade Workflow
 
-on: push
+on: 
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
-  first-job:
+  system-check-job:
+    name: System Health Check
     runs-on: ubuntu-latest
+    
+    timeout-minutes: 10
+
     steps:
-      - name: Say Hello
-        run: echo "Hello, World!"
+      - name: Print System Info
+        run: |
+          echo "Starting the advanced workflow..."
+          echo "Current Date: $(date)"
+          echo "Running on Node Version: $(node -v)"
+      
+      - name: Say Goodbye
+        run: echo "Job Completed Successfully!"

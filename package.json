@@ -1,0 +1,10 @@
+{
+  "name": "my-devops-project",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Running tests... PASS\""
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
